@@ -1,0 +1,9 @@
+# Ignore Visual Studio cache
+.vs/
+
+# Ignore CMake build folders
+out/
+build/
+
+# Ignore compiled executables
+*.exe
