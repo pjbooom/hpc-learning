@@ -21,3 +21,17 @@ add_executable(test_vec tests/test_vec.cpp)
 # INSTRUCTION 3: Build the Data Structure Benchmark
 # Only use aos_vs_soa.cpp because it has its own int main()
 add_executable(bench_vec bench/aos_vs_soa.cpp)
+
+#----------------------------------------------------------
+# Only use cube.cpp because it has its own int main()
+add_executable(Cube examples/cube.cpp)
+
+
+# ---------------------------------------------------------
+# INSTRUCTION 2: Build the Math Tester
+# Only use test_vec.cpp because it has its own int main()
+add_executable(test_mat4 tests/test_mat4_inverse.cpp)
+
+# ---------------------------------------------------------
+# Only use scene_project.cpp because it has its own int main()
+add_executable(scene_project examples/scene_project.cpp)

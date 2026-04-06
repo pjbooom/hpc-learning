@@ -53,7 +53,7 @@ int main() {
 
 		//i is an integer (like 1, 2, 3). But your vectors are built out of float memory (decimals). If you try to shove an integer into a float's slot, the compiler sometimes throws a warning. Putting (float) right in front of i is called casting
 
-		float k = (float)i;
+		float k = (float)i;     //casting
 
 		aos_data[i].x = k;
 		aos_data[i].y = k + 1.0f;
@@ -110,5 +110,4 @@ int main() {
 
 		std::cout << "Total AoS Dot product value:" << total_aos_dot << std::endl;
 		std::cout << "Total SoA Dot product value:" << total_soa_dot << std::endl;
-
 }

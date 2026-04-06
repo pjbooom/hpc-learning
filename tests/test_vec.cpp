@@ -27,4 +27,5 @@ int main() {
 	else {
 		std::cout << "[FAIL] Normalisation test failed!" << std::endl;
 	}
+	return 0;
 }

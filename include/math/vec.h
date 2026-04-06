@@ -6,9 +6,11 @@
 #include <ostream>
 // Here struct means You are telling the CPU: "Whenever I say Vec3, I want you to carve out exactly 12 bytes of memory—4 bytes for an X float, 4 bytes for a Y float, and 4 bytes for a Z float."
 struct Vec3 {
-	float x;
-	float y;
-	float z;
+	union {    // The anonymous union forces everything inside it to share the same memory space
+		struct { float x, y, z; };  // Name Tag Group 1: Coordinates
+		struct { float r, g, b; };  // Name Tag Group 2: Colors
+		//Because r and x are literally sharing the same electrons in your computer's RAM, you don't have to change your math functions at all. Your below function still does math using x, y, z
+	};
 
 	// Constructor, which makes initally x,y,z as 0. Cause when you defined x,y,z above it might contain grabage value before. so this makes sure it makes it 0.
 	Vec3(float x_input = 0.0f, float y_input = 0.0f, float z_input = 0.0f) {
@@ -96,5 +98,10 @@ struct Vec3 {
 	friend inline std::ostream& operator<<(std::ostream& os, const Vec3& v) {
 		os << "[" << v.x << ", " << v.y << ", " << v.z << "]";
 		return os;
+	}
+
+	//lerp formula
+	static Vec3 lerp(const Vec3& A, const Vec3& B, float t) {
+		return Vec3(A.x + t * (B.x - A.x), A.y + t * (B.y - A.y), A.z + t * (B.z - A.z));
 	}
 };
