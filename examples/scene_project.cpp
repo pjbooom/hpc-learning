@@ -201,9 +201,9 @@ int main() {
 	std::vector<float> zBuffer(width * height, std::numeric_limits<float>::max());
 
 	///position of camera in world space
-	Vec3 eye(3.0f, 3.0f, 3.0f); //camera is 5 meters back and 2 meters up from origin
+	Vec3 eye(0.0f, 5.0f, 0.0f); //camera is 5 meters back and 2 meters up from origin
 	Vec3 target(0.0f, 0.0f, 0.0f); //camera is looking at orgin
-	Vec3 up(0.0f, 1.0f, 0.0f); //up is exactly Y Axis
+	Vec3 up(0.0f, 0.0f, -1.0f); //up is exactly Y Axis
 	//generate matrices
 	Mat4 model; //model is identity matrix, since we want cube to be at origin and unrotated
 	Mat4 view = lookAt(eye, target, up);
