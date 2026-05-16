@@ -22,7 +22,7 @@ int main() {
 	float epsilon = 0.0001f;
 	float length = norm_vec.length();
 	if (std::abs(length - 1.0f) < epsilon) {
-		std::cout << "[PASS] Normalusation test passed!" << std::endl;
+		std::cout << "[PASS] Normalisation test passed!" << std::endl;
 	}
 	else {
 		std::cout << "[FAIL] Normalisation test failed!" << std::endl;
