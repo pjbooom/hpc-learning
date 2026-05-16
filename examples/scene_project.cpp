@@ -383,20 +383,21 @@ int main() {
 	for (int i = 0; i < cube_triangles.size(); ++i) {
 		std::vector<Vertex> projected_Triangle;
 		Vertex p0, p1, p2;
-		p0.position = MVP.mult_4dmat_vec3(fastMesh.positions[i]);
-	    p0.normal= fastMesh.normals[i];
-		p0.u = fastMesh.u[i]; 
-		p0.v = fastMesh.v[i];
+		int vIndex = i * 3;
+		p0.position = MVP.mult_4dmat_vec3(fastMesh.positions[vIndex]);
+	    p0.normal= fastMesh.normals[vIndex];
+		p0.u = fastMesh.u[vIndex]; 
+		p0.v = fastMesh.v[vIndex];
 		projected_Triangle.push_back(p0);   // MVP
-		p1.position = MVP.mult_4dmat_vec3(fastMesh.positions[i + 1]);
-	    p1.normal= fastMesh.normals[i + 1];
-		p1.u = fastMesh.u[i + 1];
-		p1.v = fastMesh.v[i + 1];
+		p1.position = MVP.mult_4dmat_vec3(fastMesh.positions[vIndex + 1]);
+	    p1.normal= fastMesh.normals[vIndex + 1];
+		p1.u = fastMesh.u[vIndex + 1];
+		p1.v = fastMesh.v[vIndex + 1];
 		projected_Triangle.push_back(p1);
-		p2.position = MVP.mult_4dmat_vec3(fastMesh.positions[i + 2]);
-	    p2.normal= fastMesh.normals[i + 2];
-		p2.u = fastMesh.u[i + 2];
-		p2.v = fastMesh.v[i + 2];
+		p2.position = MVP.mult_4dmat_vec3(fastMesh.positions[vIndex + 2]);
+	    p2.normal= fastMesh.normals[vIndex + 2];
+		p2.u = fastMesh.u[vIndex + 2];
+		p2.v = fastMesh.v[vIndex + 2];
 		projected_Triangle.push_back(p2);
 		std::vector<Vertex> clippedPolygon = ClipPolygon(projected_Triangle);    //clipping
 		std::vector<Triangle> finalTriangles = Triangulate(clippedPolygon);    //triangulation
@@ -474,6 +475,10 @@ int main() {
 
 	return 0;
 }
+
+
+
+
 
 
 
